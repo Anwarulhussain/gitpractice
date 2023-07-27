@@ -1,10 +1,17 @@
+### create a simple flask application
 from flask import Flask
+### create a flask app
+app=Flask(__name__)
+@app.route('/')
+def home():
+    return "Hello world"
 
-app = Flask(__name__)
+@app.route('/success/<int:score>')
+def success(score):
+    return "the score is"+str(score)
 
-@app.route("/")
-def hello_world():
-    return "<h1>Hello, World!</h1>"
+if __name__=='__main__':
+  app.run()
 
-if __name__=="__main__":
-    app.run(host="0.0.0.0")
+
+
